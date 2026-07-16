@@ -32,4 +32,11 @@ jobs:
             cd ~/devops-server
             git pull origin main
             npm install
-            pm2 restart all
+
+            if pm2 describe devops-server > /dev/null; then
+              pm2 restart devops-server
+            else
+              pm2 start server.js --name devops-server
+            fi
+
+            pm2 save
