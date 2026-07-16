@@ -7,6 +7,10 @@ app.get("/", (_req, res) => {
   res.json({ message: "ci-cd pipeline is working fine " });
 });
 
+
+app.get("/health", (_req, res) => {
+  res.json({ message: "ci-cd pipeline is working fine with health check " });
+});
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
